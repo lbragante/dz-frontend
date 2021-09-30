@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+
+<div class="container animated fadeIn">
+    <h1>Pedidos</h1>
+
+    <section>
+        <div class="table-responsive">
+            <table class="table" *ngIf="(orders$ | async)?.length > 0; else noOrders">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Produto</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let order of (orders$ | async)">
+                        <td>
+                            <h6 class="mb-1"><strong>{{ order.createdAt | date:'dd/MM/yyyy - HH:mm' }}</strong></h6>
+                        </td>
+                        <td>
+                            <h6>{{ order.product }}</h6>
+                        </td>
+                        <td>
+                            <h6>{{ convertStatus(order?.deliveryStatus) }}</h6>
+                        </td>
+                        <td>
+                            <button class="btn btn-secondary btn-block shadow-none">Rastrear</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <ng-template #noOrders>
+            <h4 class="text-center">Não há pedidos :(</h4>
+        </ng-template>
+    </section>
+</div>

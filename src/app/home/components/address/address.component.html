@@ -1,0 +1,103 @@
+<app-navbar></app-navbar>
+
+<div class="container animated fadeIn">
+    <h1 class="card-title">Endereço de entrega</h1>
+
+    <div *ngIf="errorMessage !== ''">
+        <div class="alert alert-danger" role="alert">{{ errorMessage }}</div>
+    </div>
+    <div *ngIf="successMessage !== ''">
+        <div class="alert alert-success" role="alert">{{ successMessage }}</div>
+    </div>
+
+    <form [formGroup]="formAddress" (ngSubmit)="saveAddress()">
+        <div class="row">
+            <div class="col-12 col-lg-3">
+                <div class="form-group">
+                    <label for="cep">CEP</label>
+                    <input type="text" class="form-control shadow-none" id="cep" placeholder="CEP" formControlName="zip" minlength="8" maxlength="8" autofocus>
+                    <span class="validation-text" *ngIf="!formAddress.controls['zip'].valid && formAddress.controls['zip']?.touched">Campo obrigatório</span>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="endereco">Endereço</label>
+                    <input type="text" class="form-control shadow-none" id="endereco" placeholder="Endereço" formControlName="street">
+                    <span class="validation-text" *ngIf="!formAddress.controls['street'].valid && formAddress.controls['street']?.touched">Campo obrigatório</span>
+                </div>
+            </div>
+
+            <div class="col-3 col-lg-2">
+                <div class="form-group">
+                    <label for="numero">Número</label>
+                    <input type="text" class="form-control shadow-none" id="numero" placeholder="Número" formControlName="number">
+                    <span class="validation-text" *ngIf="!formAddress.controls['number'].valid && formAddress.controls['number']?.touched">Campo obrigatório</span>
+                </div>
+            </div>
+
+            <div class="col-9 col-lg-10">
+                <div class="form-group">
+                    <label for="complemento">Complemento</label>
+                    <input type="text" class="form-control shadow-none" id="complemento" placeholder="Complemento" formControlName="complement">
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-5">
+                <div class="form-group">
+                    <label for="bairro">Bairro</label>
+                    <input type="text" class="form-control shadow-none" id="bairro" placeholder="Bairro" formControlName="district">
+                    <span class="validation-text" *ngIf="!formAddress.controls['district'].valid && formAddress.controls['district']?.touched">Campo obrigatório</span>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-5">
+                <div class="form-group">
+                    <label for="cidade">Cidade</label>
+                    <input type="text" class="form-control shadow-none" id="cidade" placeholder="Cidade" formControlName="city">
+                    <span class="validation-text" *ngIf="!formAddress.controls['city'].valid && formAddress.controls['city']?.touched">Campo obrigatório</span>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-2">
+                <div class="form-group">
+                    <label for="estado">Estado</label>
+                    <select class="form-control shadow-none" id="estado" formControlName="state">
+                        <option></option>
+                        <option>AC</option>
+                        <option>AL</option>
+                        <option>AM</option>
+                        <option>AP</option>
+                        <option>BA</option>
+                        <option>CE</option>
+                        <option>DF</option>
+                        <option>ES</option>
+                        <option>GO</option>
+                        <option>MA</option>
+                        <option>MG</option>
+                        <option>MS</option>
+                        <option>MT</option>
+                        <option>PA</option>
+                        <option>PB</option>
+                        <option>PE</option>
+                        <option>PI</option>
+                        <option>PR</option>
+                        <option>RJ</option>
+                        <option>RN</option>
+                        <option>RO</option>
+                        <option>RR</option>
+                        <option>RS</option>
+                        <option>SC</option>
+                        <option>SE</option>
+                        <option>SP</option>
+                        <option>TO</option>
+                      </select>
+
+                    <span class="validation-text" *ngIf="!formAddress.controls['state'].valid && formAddress.controls['state']?.touched">Campo obrigatório</span>
+                </div>
+            </div>
+
+        </div>
+        <button type="submit" [disabled]="formAddress.invalid" class="btn btn-primary btn-block shadow-none mt-3">Cadastrar endereço</button>
+    </form>
+</div>

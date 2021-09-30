@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+
+<div class="container animated fadeIn">
+    <h1>Produtos</h1>
+
+    <section>
+        <div class="table-responsive">
+            <table class="table" *ngIf="(products$ | async)?.length > 0; else noProducts">
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Categoria</th>
+                        <th>Sub-categoria</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of (products$ | async)">
+                        <td>
+                            <h6 class="mb-1"><strong>{{ product.title }}</strong></h6>
+                            <span class="text-primary">{{ product.points }} pontos</span>
+                        </td>
+                        <td>
+                            <h6>{{ product.category }}</h6>
+                        </td>
+                        <td>
+                            <h6>{{ product.subcategory }}</h6>
+                        </td>
+                        <td>
+                            <button class="btn btn-secondary btn-block shadow-none">Resgatar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <ng-template #noProducts>
+            <h4 class="text-center">Não há produtos :(</h4>
+        </ng-template>
+    </section>
+</div>

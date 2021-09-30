@@ -1,0 +1,33 @@
+@import '../../../../sass/colors';
+@import '../../../../sass/typography';
+
+.navbar {
+    box-shadow: 4px 4px 20px 0 rgba(120,135,182,.1);
+    background-color: transparent !important;
+    margin-bottom: 2rem;
+}
+
+.navbar-brand {
+    font-family: 'Lato', sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    color: $dark;
+}
+
+a.nav-link {
+    color: $dark !important;
+    transition: 0.3s;
+}
+
+a.nav-link:hover {
+    color: $primary !important;
+}
+
+.is-active {
+    color: $primary;
+}
+
+.navbar-nav > li {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}

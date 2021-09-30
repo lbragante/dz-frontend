@@ -1,0 +1,18 @@
+@import "../../../../sass/colors";
+
+.main {
+    background-color: $secondary !important;
+}
+
+input.ng-touched.ng-invalid {
+    border: 0.12em solid $danger;
+}
+
+input.ng-touched.ng-valid {
+    border: 0.12em solid $success;
+}
+
+.validation-text {
+    color: $danger;
+    margin-top: .5em;
+}

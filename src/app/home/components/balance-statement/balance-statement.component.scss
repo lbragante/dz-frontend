@@ -1,0 +1,51 @@
+@import "../../../../sass/cards";
+
+.card {
+    ::-moz-selection {
+        color: #fff;
+        background: $primary;
+    }
+      
+    ::selection {
+        color: #fff;
+        background: $primary;
+    }
+}
+
+@import '../../../../sass/colors';
+
+.table{
+	border-spacing: 0 .8rem !important;
+    border-collapse: separate;
+
+	thead, tbody{
+		tr{
+            th {
+                padding-left: 1.5rem;
+            }
+            td {
+                padding: 1.5rem;
+            }
+			th, td{
+				vertical-align: middle;
+				border: none;
+			}
+		}
+	}
+
+	tbody{
+		tr{
+			box-shadow: 4px 4px 20px 0 rgba(120,135,182,.1);
+            
+			td{
+				background: #fff;
+				&:nth-child(1) {
+					border-radius: 0.25rem 0 0 0.25rem;
+				}
+				&:nth-last-child(1) {
+					border-radius: 0 0.25rem 0.25rem 0;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,14 @@
+@import '../../../../sass/colors';
+
+input.ng-touched.ng-invalid, select.ng-touched.ng-invalid {
+    border: 0.12em solid $danger;
+}
+
+input.ng-touched.ng-valid, select.ng-touched.ng-valid {
+    border: 0.12em solid $success;
+}
+
+.validation-text {
+    color: $danger;
+    margin-top: .5em;
+}

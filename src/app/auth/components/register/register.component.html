@@ -1,0 +1,62 @@
+<div class="main h-100">
+    <div class="container h-100">
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="col-sm-8 col-md-8">
+                <div class="card mt-2 mb-2 animated fadeIn">
+                    <div class="card-body">
+                        <h1 class="card-title">Crie sua conta</h1>
+
+                        <div *ngIf="errorMessage !== ''">
+                            <div class="alert alert-danger" role="alert">{{ errorMessage }}</div>
+                        </div>
+
+                        <form [formGroup]="formRegister" (ngSubmit)="registerUser()">
+                            <div class="row">
+                                <div class="col-12 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="nome">Nome</label>
+                                        <input type="text" class="form-control shadow-none" id="nome" placeholder="Nome" formControlName="firstName"
+                                            autofocus>
+                                            <span class="validation-text" *ngIf="!formRegister.controls['firstName'].valid && formRegister.controls['firstName']?.touched">Campo obrigatório</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sobrenome">Sobrenome</label>
+                                        <input type="text" class="form-control shadow-none" id="sobrenome"
+                                            placeholder="Sobrenome" formControlName="lastName">
+                                            <span class="validation-text" *ngIf="!formRegister.controls['lastName'].valid && formRegister.controls['lastName']?.touched">Campo obrigatório</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="email">E-mail</label>
+                                        <input type="email" class="form-control shadow-none" id="email"
+                                            placeholder="E-mail" formControlName="email">
+                                            <span class="validation-text" *ngIf="!formRegister.controls['email'].valid && formRegister.controls['email']?.touched">Campo obrigatório</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="password">Senha</label>
+                                        <input type="password" class="form-control shadow-none" id="password"
+                                            placeholder="Senha (até 6 caracteres)" formControlName="password" minlength="6">
+                                            <span class="validation-text" *ngIf="!formRegister.controls['password'].valid && formRegister.controls['password']?.touched">Campo obrigatório</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <button type="submit" [disabled]="formRegister.invalid" class="btn btn-primary btn-block shadow-none mt-3" >Cadastrar-se</button>
+                        </form>
+                        <div class="mt-3 text-center">
+                            <span>Já possui conta? <a routerLink="/auth/login">faça login</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
